@@ -14,7 +14,29 @@ https://github.com/user-attachments/assets/b9acbc8d-a9ce-4489-b028-960156978bec
 
 ![proto_gif](./assets/proto.gif)
 
-## Estudio previo
+## TL;DR
+
+### Resumen del proyecto
+
+**Concepto**: dispositivo interactivo que asocia un teclado numérico a frecuencias sonoras, permitiendo crear música o jugar en un modo de memoria donde los fallos activan una señal de error.
+
+* **Hardware principal**: microcontrolador atmega328pu montado con un cristal externo de 16 mhz para garantizar la precisión temporal de las notas.
+* **Salida de audio**: buzzer pasivo piezoeléctrico con un circuito de control de volumen analógico mediante un trimmer de 10 kΩ y resistencias de protección.
+* **Gestión de potencia**: alimentación flexible a través de usb-c o baterías, protegida por un interruptor rocker y reguladores de tensión.
+* **Interfaz visual**: leds controlados por transistores bjt 2n3904 que actúan como drivers para evitar el consumo excesivo de corriente desde los pines del microcontrolador.
+
+### Herramientas y software
+
+El desarrollo del proyecto integró diversas disciplinas de ingeniería mediante el siguiente stack tecnológico:
+
+* **Diseño electrónico**: [EasyEDA](https://oshwlab.com/agarnung/srinivasa-says) para la creación del esquemático y el ruteado de la pcb, permitiendo la exportación de modelos 3d para su integración mecánica.
+* **Simulación de sistemas**: [Proteus 8.12](https://www.labcenter.com/whatsnew/8.12/) para validar la lógica del código y el comportamiento del hardware antes de la fabricación física.
+* **Desarrollo de firmware**: [WinAVR](https://winavr.sourceforge.net/) y [avr-gcc](https://winavr.sourceforge.net/) para compilar código en c puro. Usado a través de [Microship Stuio](https://www.microchip.com/en-us/tools-resources/develop/microchip-studio) (antes [Atmel Studio](https://www.microchip.com/en-us/tools-resources/develop/microchip-studio)).
+* **Modelado mecánico**: [Blender](https://www.blender.org/) para diseñar la carcasa protectora. [Fusion](https://www.autodesk.com/es/products/fusion-360/overview) para el diseño de los botones táctiles personalizados.
+* **Fabricación aditiva**: [BambuStudio](https://bambulab.com/es/download/studio) y [Bambulab A1 mini](https://bambulab.com/es/a1-mini)  el laminado de las piezas destinadas a impresión 3d.
+* **Grabación de hardware**: programador [USBASP](https://www.tiendatec.es/maker-zone/programadores/526-programador-usbasp-v20-avr-icsp-con-cable-para-arduino-8405261440008.html) y la herramienta [AVRDUDE](https://github.com/avrdudes/avrdude) (a través de su GUI [AVRDUDESS](https://blog.zakkemble.net/avrdudess-a-gui-for-avrdude/)) para cargar el archivo .hex directamente en el chip mediante la interfaz ISP.
+
+## Estudio previo y documentación
 
 ### Funcionamiento deseado
 
@@ -565,9 +587,11 @@ Los archivos CAD y 3D (STL, OBJ...) del diseño mecánico realizado están aloja
 
 Diseñamos una sencilla carcasa para crear con impresora 3D y proteger nuestra PCB, que tendrá una serie de taladros para fijar a la carcasa => Intentamos usar Autodesk Fusion 360 (versión de uso personal, [gratuita](https://www.autodesk.com/products/fusion-360/appstream)). Sin embargo, no resultó tan bien como esperábamos y acabamos usando Blender.
 
-Se ponen los taladros y diseño carcasa y PCB, etc. Se [exporta el STL](https://www.youtube.com/watch?app=desktop&v=F5EkDj69ieM) de la PCB de EasyEDA a Fusion.
+La carcasa (ver imagen) está laminada con [BambuStudio](https://bambulab.com/es/download/studio) e impresa en mi propia impresora [Bambulab A1 mini](https://bambulab.com/es/a1-mini) con [PETG HF](https://eu.store.bambulab.com/es/products/petg-hf?p=W3sicHJvcGVydHlLZXkiOiJDb2xvciIsInByb3BlcnR5VmFsdWUiOiJCbGFuY28gKDMzMTAwKSJ9LHsicHJvcGVydHlLZXkiOiJUaXBvIiwicHJvcGVydHlWYWx1ZSI6IiJ9LHsicHJvcGVydHlLZXkiOiJUYW1hw7FvIiwicHJvcGVydHlWYWx1ZSI6IjEga2cifV0%3D).
 
-Nótese que el propio EasyEDA te da la opción de diseñar una shell (carcasa) para la PCB, que la proteja, y que se puede imprimir en 3D, englobando la PCB en el diseño. Ver [este video](https://www.youtube.com/watch?v=4v2gWze6xi4).
+Se ponen los taladros y diseño carcasa y PCB, etc. Se [exporta el STL](https://www.youtube.com/watch?app=desktop&v=F5EkDj69ieM) de la PCB de EasyEDA al programa de diseño.
+
+Nótese que el propio EasyEDA te da la opción de diseñar una shell (carcasa) para la PCB, que la proteja, y que se puede imprimir en 3D, englobando la PCB en el diseño. Ver [este video](https://www.youtube.com/watch?v=4v2gWze6xi4). Sin embargo, esto puede ser aparatoso porque las huellas 3D de los componentes pueden ser erróneas; así que la diseñamos nosotros de cero.
 
 En JLC3DP incluso se pueden encargar que nos impriman nuestras partes 3D, si queremos mejor calidad o son muy pequeñas: [ver](https://www.youtube.com/watch?v=bpns0GSR_zI).
 
@@ -580,7 +604,7 @@ Se descubrieron otras herramientas interesantes para el diseño:
 
 - O también [Ultimaker Cura](https://www.google.com/search?client=firefox-b-d&q=ultimaker+cur), que es muy fácil de usar y es el que usaremos en [este proyecto](https://www.youtube.com/watch?v=4v2gWze6xi4).
 
-- El CAD de los botones se recogió de https://grabcad.com/library/tactile-switches-1. Con este CAD se diseñan las partes táctiles de los pulsadores.
+- El CAD de los botones se recogió de [https://grabcad.com/library/tactile-switches-1](https://grabcad.com/library/tactile-switches-1). Con este CAD se diseñan las partes táctiles de los pulsadores, mediante modificadores Booleanos, extrusión de números, etc. De hecho los botones sí que se diseñaron en [Fusion](https://www.autodesk.com/es/products/fusion-360/overview). 
 
 ### Botonera
 
