@@ -4,7 +4,7 @@ Un juego al estilo _Simon Says_ basado en ATmega328P que reproduce dígitos de �
 
 Este fin de semana me aburrí, así que decidí desempolvar mis escasos conocimientos en electrónica de la carrera y diseñar una PCB de un pequeño juego con el que chapuceé hace tiempo. El objetivo es hacer una PCB portátil y bonita para poder jugar al Srinivasa Says en cualquier lugar. ¿Qué es esto? Fácil, ¿conoces el Simon Says? Sí, lo conozco. Pues bien, Srinivasa no te cuenta tonos de música cualesquiera, sino dígitos de π. Y tú has de memorizarlos y reproducirlos. Increíble, ¿verdad? Pongámonos a ello.
 
-https://github.com/user-attachments/assets/b9acbc8d-a9ce-4489-b028-960156978bec
+https://github.com/user-attachments/assets/0c9361d4-9f9e-41f5-91bd-952661cb89a2
 
 ## TL;DR
 
