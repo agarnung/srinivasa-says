@@ -1,0 +1,8 @@
+mechanical_design/*
+electrical_design/*
+
+!electrical_design/*.png
+!mechanical_design/*.png
+!mechanical_design/casing_v2.blend
+!mechanical_design/final_3d_files/*
+!mechanical_design/pcb.stl
