@@ -6,14 +6,6 @@ Este fin de semana me aburrí, así que decidí desempolvar mis escasos conocimi
 
 https://github.com/user-attachments/assets/b9acbc8d-a9ce-4489-b028-960156978bec
 
-![full1](./assets/full1.png)
-
-![full2](./assets/full2.png)
-
-![full3](./assets/full3.png)
-
-![proto_gif](./assets/proto.gif)
-
 ## TL;DR
 
 ### Resumen del proyecto
@@ -35,6 +27,20 @@ El desarrollo del proyecto integró diversas disciplinas de ingeniería mediante
 * **Modelado mecánico**: [Blender](https://www.blender.org/) para diseñar la carcasa protectora. [Fusion](https://www.autodesk.com/es/products/fusion-360/overview) para el diseño de los botones táctiles personalizados.
 * **Fabricación aditiva**: [BambuStudio](https://bambulab.com/es/download/studio) y [Bambulab A1 mini](https://bambulab.com/es/a1-mini)  el laminado de las piezas destinadas a impresión 3d.
 * **Grabación de hardware**: programador [USBASP](https://www.tiendatec.es/maker-zone/programadores/526-programador-usbasp-v20-avr-icsp-con-cable-para-arduino-8405261440008.html) y la herramienta [AVRDUDE](https://github.com/avrdudes/avrdude) (a través de su GUI [AVRDUDESS](https://blog.zakkemble.net/avrdudess-a-gui-for-avrdude/)) para cargar el archivo .hex directamente en el chip mediante la interfaz ISP.
+
+Todo el material disponible en las [Releases](https://github.com/agarnung/srinivasa-says/releases) de este repo:
+
+- **Diseño mecánico**: Archivos CAD, 3D (STL, OBJ) del diseño mecánico destinado a la impresión 3D del sistema. En mechanical_design.zip.
+- **Diseño eléctrico/eléctrónico**: Imágenes de PCB y capas/pistas. Archivos Gerber y esquemático. Simulación de Proteus. En electronic_design.zip.
+- **Código fuente y binarios**: En program.zip.
+
+![full1](./assets/full1.png)
+
+![full2](./assets/full2.png)
+
+![full3](./assets/full3.png)
+
+![proto_gif](./assets/proto.gif)
 
 ## Estudio previo y documentación
 
