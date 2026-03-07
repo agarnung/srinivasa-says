@@ -6,6 +6,8 @@ Este fin de semana me aburrí, así que decidí desempolvar mis escasos conocimi
 
 https://github.com/user-attachments/assets/0c9361d4-9f9e-41f5-91bd-952661cb89a2
 
+Ve también el proyecto en **[mi blog](https://agarnung.github.io/blog/srinivasa-says)**, en **[Instructable](https://www.instructables.com/Srinivasa-Says-a-Pi-Memorization-Memory-Game/)** y en **[EasyEDA](https://oshwlab.com/agarnung/srinivasa-says)**.
+
 ## TL;DR
 
 ### Resumen del proyecto
